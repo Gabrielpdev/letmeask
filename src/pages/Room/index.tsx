@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 
+import { database } from '../../services/firebase';
 // import { Button } from '../../components/Button';
-// import { useAuth } from '../../contexts/auth';
+import { useAuth } from '../../contexts/auth';
 
 // import { database } from '../../services/firebase';
 
@@ -17,14 +19,44 @@ type RoomParams = {
 }
 
 export function Room() {
+  const { user } = useAuth();
   const params = useParams<RoomParams>();
+  const roomId = params.id;
+
+  const [newQuestion, setNewQuestion] = useState('');
+
+  async function handleSendQuestion(event: any){
+    event.preventDefault();
+
+    if(newQuestion.trim() === ''){
+      return;
+    }
+
+    if(!user){
+      throw new Error("User not authenticated");
+    }
+
+    const question = {
+      content: newQuestion,
+      author: {
+        name: user.name,
+        avatar: user.avatar
+      },
+      isHightlighted: false,
+      isAnswered: false
+    }
+
+    await database.ref(`rooms/${roomId}/questions`).push(question);
+
+    setNewQuestion('')
+  }
 
   return (
     <Container>
       <Header>
         <div>
           <img src={logoImg} alt="" />
-          <RoomCode code={params.id}/>
+          <RoomCode code={roomId}/>
         </div>
       </Header>
 
@@ -34,12 +66,19 @@ export function Room() {
           <span>4 perguntas</span>
         </Title>
 
-        <Form>
-          <textarea name="" placeholder="O que você quer perguntar ?" />
+        <Form onSubmit={handleSendQuestion}>
+          <textarea onChange={e => setNewQuestion(e.target.value)} value={newQuestion} placeholder="O que você quer perguntar ?" />
           
           <div>
-            <span>Para enviar uma pergunta <button>faça seu login</button></span>
-            <Button type="submit" >Enviar pergunta</Button>
+          { user ? (
+            <div>
+              <img src={user.avatar} alt={user.name} />
+              <span>{user.name}</span>
+            </div>
+            ) : (
+            <span>Para enviar uma pergunta, <button>faça seu login</button></span>
+          )}
+            <Button type="submit">Enviar pergunta</Button>
           </div>
         </Form>
       </main>

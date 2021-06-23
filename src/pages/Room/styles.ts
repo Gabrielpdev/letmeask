@@ -65,7 +65,25 @@ export const Form = styled.form`
     
     margin-top: 1.6rem;
 
-    span {
+    >div {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+      }
+
+      > span {
+        margin-left: .8rem;
+        color: #29292e;
+        font-weight: 500;
+        font-size: 1.4rem;
+      }
+    }
+
+    > span {
       font-size: 1,4rem;
       color: #737380;
       font-weight: 500;
