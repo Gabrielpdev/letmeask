@@ -1,4 +1,3 @@
-import { ButtonHTMLAttributes } from 'react';
 import { Container } from './styles';
 
 import copyImg from '../../assets/images/copy.svg';
