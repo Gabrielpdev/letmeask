@@ -11,6 +11,7 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
     font-size: 62.5%;
     box-sizing: border-box;
+    background: #F8F8F8;
   }
 
   body, input, button, textarea {
