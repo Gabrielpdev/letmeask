@@ -1,5 +1,7 @@
 import { useHistory } from 'react-router-dom'
 
+import { database } from '../../services/firebase';
+
 import { Button } from '../../components/Button';
 import { useAuth } from '../../contexts/auth';
 
@@ -21,6 +23,25 @@ export function Home() {
     history.push('/rooms/new')
   }
 
+  async function handleJoinRoom(event: any){
+    event.preventDefault();
+
+    const { roomCode : { value: roomCode }} = event.target;
+
+    if(roomCode.trim() === ''){
+      return;
+    }
+
+    const roomRef = await database.ref(`rooms/${roomCode}`).get();
+
+    if(!roomRef.exists()){
+      alert("Room does not exists")
+    }else {
+      history.push(`/rooms/${roomCode}`)
+    }
+
+  }
+
   return (
     <Container>
       <aside>
@@ -38,8 +59,8 @@ export function Home() {
 
           <Separator> ou entre com o Google</Separator>
 
-          <form>
-            <input type="text" placeholder="Digite o código da sala" />
+          <form onSubmit={handleJoinRoom}>
+            <input type="text" name="roomCode" placeholder="Digite o código da sala" />
             <Button type="submit">Entrar na sala</Button>
           </form>
         </MainContent>
