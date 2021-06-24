@@ -1,12 +1,14 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-export const Container = styled.button`
-  /* margin-top: 6.4rem; */
+interface ContainerProps {
+  $isOutlined?: boolean;
+}
+
+export const Container = styled.button<ContainerProps>`
   height: 5rem;
   border-radius: 8px;
   font-weight: 500;
-  background: #835AFD;
-  color: #fff;
+
   
   padding: 0 3.2rem;
 
@@ -14,7 +16,6 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 0;
 
   transition: filter 0.2s ease;
 
@@ -30,4 +31,18 @@ export const Container = styled.button`
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+  ${({ $isOutlined }) => $isOutlined ? (
+    css`
+      background: #fff;
+      color: #835AFD;
+      border: 1px solid #835AFD;
+    `
+  ) : (
+    css`
+      background: #835AFD;
+      color: #fff;
+      border: 0;
+  `
+  )}
 `;

@@ -18,7 +18,7 @@ type RoomParams = {
   id: string
 }
 
-export function Room() {
+export function AdminRoom() {
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
@@ -59,7 +59,10 @@ export function Room() {
       <Header>
         <div>
           <img src={logoImg} alt="" />
-          <RoomCode code={roomId}/>
+          <div>
+            <RoomCode code={roomId}/>
+            <Button isOutlined >Encerrar sala</Button>
+          </div>
         </div>
       </Header>
 
@@ -68,22 +71,6 @@ export function Room() {
           <h1>{`Sala ${title}`}</h1>
           {questions.length > 0 && <span>{`${questions.length} perguntas`}</span>}
         </Title>
-
-        <Form onSubmit={handleSendQuestion}>
-          <textarea onChange={e => setNewQuestion(e.target.value)} value={newQuestion} placeholder="O que você quer perguntar ?" />
-          
-          <div>
-          { user ? (
-            <div>
-              <img src={user.avatar} alt={user.name} />
-              <span>{user.name}</span>
-            </div>
-            ) : (
-            <span>Para enviar uma pergunta, <button>faça seu login</button></span>
-          )}
-            <Button type="submit">Enviar pergunta</Button>
-          </div>
-        </Form>
         
         <QuestionList>
           {questions.map((question) => (

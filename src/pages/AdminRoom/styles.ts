@@ -21,6 +21,15 @@ export const Header = styled.div`
     >img {
       max-height: 4.5rem;
     }
+
+    >div {
+      display: flex;
+      gap: 1.6rem;
+
+      > button {
+        height: 4rem;
+      }
+    }
   }
 `;
 
