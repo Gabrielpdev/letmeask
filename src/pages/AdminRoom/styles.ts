@@ -55,61 +55,10 @@ export const Title = styled.div`
   }
 `;
 
-export const Form = styled.form`
-  textarea {
-    width: 100%;
-    border: 0;
-    padding: 1.6rem;
-    border-radius: 8px;
-    background: #fefefe;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    resize: vertical;
-    min-height: 13rem;
-  }
-
-  >div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-    margin-top: 1.6rem;
-
-    >div {
-      display: flex;
-      align-items: center;
-
-      img {
-        width: 3.2rem;
-        height: 3.2rem;
-        border-radius: 50%;
-      }
-
-      > span {
-        margin-left: .8rem;
-        color: #29292e;
-        font-weight: 500;
-        font-size: 1.4rem;
-      }
-    }
-
-    > span {
-      font-size: 1,4rem;
-      color: #737380;
-      font-weight: 500;
-
-      button {
-        background: none;
-        border: 0 ;
-        color: #835afd;
-        text-decoration: underline;
-        font-size: 1.4rem;
-        font-weight: 500;
-        cursor: pointer;
-      }
-    }
-  }
-`;
-
 export const QuestionList = styled.div`
   margin-top: 6rem;
+`;
+
+export const Delete = styled.button`
+
 `;
