@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+interface LikeProps {
+  $Liked?: boolean;
+}
 
 export const Container = styled.div`
   main{
@@ -103,4 +106,30 @@ export const Form = styled.form`
 
 export const QuestionList = styled.div`
   margin-top: 6rem;
+`;
+
+export const Like = styled.button<LikeProps>`
+  display: flex;
+  align-items: flex-end;
+  gap: 0.8rem;
+
+  transition: filter 0.2s ease;
+
+  ${({ $Liked }) => $Liked ? (
+    css`
+    color: #835afd;
+
+      svg path {
+        stroke: #835afd;
+      }
+    `
+  ) : (
+    css`
+      color: #737380;
+  `
+  )}
+
+  &:hover{
+    filter: brightness(0.7);
+  }
 `;

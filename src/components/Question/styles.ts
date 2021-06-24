@@ -16,6 +16,18 @@ export const Container = styled.div`
     margin-bottom: 1rem;
   }
 
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2.4rem;
+  }
+
+  button {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
 `;
 
 export const UserInfo = styled.div`

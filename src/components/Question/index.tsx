@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { Container, UserInfo } from './styles';
 
 type QuestionProps = {
@@ -6,10 +7,10 @@ type QuestionProps = {
     name: string;
     avatar: string;
   }
-
+  children?: ReactNode;
 }
 
-export function Question({content, author}: QuestionProps) {
+export function Question({content, author, children}: QuestionProps) {
   return (
     <Container>
       <p>{content}</p>
@@ -21,7 +22,7 @@ export function Question({content, author}: QuestionProps) {
         </UserInfo>
 
         <div>
-
+          {children}
         </div>
       </footer>
     </Container>
