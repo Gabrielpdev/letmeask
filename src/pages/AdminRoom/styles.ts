@@ -59,6 +59,6 @@ export const QuestionList = styled.div`
   margin-top: 6rem;
 `;
 
-export const Delete = styled.button`
+export const IconButton = styled.button`
 
 `;
