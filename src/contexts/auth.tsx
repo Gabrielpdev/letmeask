@@ -56,6 +56,8 @@ export const AuthProvider: React.FC = ({ children }) => {
         throw new Error('Missing information from Google Account.')
       }
 
+      localStorage.setItem('@LetMeAsk:auth', 'logged');
+
       setUser({
         id: uid,
         name: displayName,
@@ -66,6 +68,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   async function signOutWithGoogle(){
     await auth.signOut()
+    localStorage.removeItem('@LetMeAsk:auth')
 
     setUser(undefined)
   }

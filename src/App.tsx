@@ -14,12 +14,11 @@ import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
 import { Room } from './pages/Room';
 import { AdminRoom } from './pages/AdminRoom';
-import { useAuth } from './contexts/auth';
 
 export default function App() {
-  const { user } = useAuth();
 
-  console.log(user)
+  const user = localStorage.getItem('@LetMeAsk:auth');
+
   return (
     <BrowserRouter>
       <AppProvider>
@@ -30,17 +29,15 @@ export default function App() {
 
           <Route path='/admin/rooms/:id' 
             render={({ location }) => {
-              return user ? (
+              return !!user ? (
                 <AdminRoom />
               ) : (
-                <AdminRoom />
-
-                // <Redirect
-                //   to={{
-                //     pathname: '/',
-                //     state: { from: location },
-                //   }}
-                // />
+                <Redirect
+                  to={{
+                    pathname: '/',
+                    state: { from: location },
+                  }}
+                />
               );
             }}
           />
