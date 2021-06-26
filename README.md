@@ -1,46 +1,83 @@
-# Getting Started with Create React App
+<h2 align="center">
+  <img alt="letmeask" title="#letmeask" src=".github/logo-full.svg"/>
+</h2>
+  
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Gabrielpdev/letmeask?color=%2304D361">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Gabrielpdev/letmeask">
+  	
+  <a href="https://www.linkedin.com/in/gabriel-pereira-oliveira-78b1801ab/">
+    <img alt="Made by Gabrielpdev" src="https://img.shields.io/badge/made%20by-Gabrielpdev-%2304D361">
+  </a>
+	  
+  <a href="https://github.com/Gabrielpdev/letmeask/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Gabrielpdev/letmeask">
+  </a>
 
-## Available Scripts
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  
+  <a href="https://github.com/Gabrielpdev/letmeask/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/Gabrielpdev/letmeask?style=social">
+  </a>
 
-In the project directory, you can run:
+</p>
 
-### `yarn start`
+<h2 align="center">
+  <img alt="letmeask" title="#letmeask" src=".github/Capa.png" width="350px" />
+</h2>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📝 Conteúdo
+<p align="center">
+<a href="#about">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#getting_started">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#built_using">Tecnologias Utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#contribute">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+</p>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🧐 Sobre <a name = "about"></a>
 
-### `yarn build`
+LetMeAsk é uma Aplicação feita durante a **NWL together** oferecido pela [Rocketseat] :rocket:.<br/> 
+o objetivo do LetMeAsk é ajudar algum palestrante ou alguém que deseja responder perguntas, nessa aplicação
+os usuario fazer o login usando sua conta google e após podem realizar as perguntas entrando nas salas, já o
+ dono da sala, pode excluir perguntas, destacar e marcar como pergunta respondida. você pode acessar ela 
+ <a href="https://letmeask-gabrielpdev.vercel.app/">clicando aqui</a><br/> 
+## 🏁 Iniciando <a name = "getting_started"></a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Instruções de como instalar a aplicação na sua máquina.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### ⚒ Instalando <a name = "installing"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+# 💻 Iniciando
 
-### `yarn eject`
+$ cd letmeask
+$ yarn install
+$ yarn start
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+## ⛏️ Tecnologias Utilizadas <a name = "built_using"></a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+As seguintes ferramentas foram usadas na construção do projeto:
+- 🔥 [Firebase][firebase]
+- 🔵 [TypeScript][typescript]
+- ⚛️ [React][reactjs]
+- 💅 [Styled-components][styled-components]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🤔 Como contribuir <a name = "contribute"></a>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Faça um fork desse repositório;
+- Cria uma branch com a sua feature: `git checkout -b minha-feature`;
+- Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
+- Faça push para a sua branch: `git push origin minha-feature`.
 
-## Learn More
+Feito com ❤️ por Gabriel Pereira 👋🏽 [Entre em contato!](https://www.linkedin.com/in/gabriel-pereira-oliveira-78b1801ab/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[firebase]: https://firebase.google.com/
+[typescript]: https://www.typescriptlang.org/
+[reactjs]: https://reactjs.org
+[Rocketseat]:https://github.com/Rocketseat
+[styled-components]:https://styled-components.com/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
