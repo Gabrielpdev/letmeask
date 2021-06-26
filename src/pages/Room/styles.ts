@@ -4,9 +4,12 @@ interface LikeProps {
 }
 
 export const Container = styled.div`
+  background: ${({theme}) => theme.colors.background };
+
   main{
     max-width: 80rem;
     margin: 0 auto;
+    padding: 0 3rem;
   }
 `;
 
@@ -21,8 +24,21 @@ export const Header = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    gap: 1rem;
+
     >img {
       max-height: 4.5rem;
+    }
+
+    >div{
+      display: flex;
+      gap: 0.8rem;
+    }
+  }
+
+  @media(max-width: 500px){
+    >div {
+      flex-direction: column;
     }
   }
 `;
@@ -35,7 +51,7 @@ export const Title = styled.div`
   h1 {
     font-family: 'Popins', sans-serif;
     font-size: 2.4rem;
-    color: #29292e;
+    color: ${({theme}) => theme.colors.title };
   }
 
   span {
@@ -47,6 +63,18 @@ export const Title = styled.div`
     font-weight: 500;
     font-size: 1.4rem;
   }
+  
+  @media(max-width: 445px){
+    margin: 3.2rem 0;
+
+    h1{
+      font-size: 2rem;
+    }
+
+    span{
+      font-size: 1.2rem;
+    }
+  }
 `;
 
 export const Form = styled.form`
@@ -55,10 +83,11 @@ export const Form = styled.form`
     border: 0;
     padding: 1.6rem;
     border-radius: 8px;
-    background: #fefefe;
+    background: ${({theme}) => theme.colors.cardBg };
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     resize: vertical;
     min-height: 13rem;
+    color: ${({theme}) => theme.colors.light };
   }
 
   >div {
@@ -80,7 +109,7 @@ export const Form = styled.form`
 
       > span {
         margin-left: .8rem;
-        color: #29292e;
+        color: ${({theme}) => theme.colors.title };
         font-weight: 500;
         font-size: 1.4rem;
       }
@@ -100,6 +129,12 @@ export const Form = styled.form`
         font-weight: 500;
         cursor: pointer;
       }
+    }
+  }
+
+  @media(max-width: 500px){
+    >div >div > span {
+      font-size: 1.2rem;
     }
   }
 `;

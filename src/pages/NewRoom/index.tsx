@@ -1,16 +1,20 @@
 import { Link, useHistory } from 'react-router-dom'
 
 import { Button } from '../../components/Button';
+import { useTheme } from '../../contexts/theme';
 import { useAuth } from '../../contexts/auth';
+import { ThemeButton } from '../../components/ThemeButton';
 
 import { database } from '../../services/firebase';
 
 import illustrationImg from '../../assets/images/illustration.svg'
 import logoImg from '../../assets/images/logo.svg'
+import logoDrk from '../../assets/images/logo-drk.svg'
 
 import { Container, MainContent } from './styles';
 
 export function NewRoom() {
+  const { theme } = useTheme();
   const history = useHistory();
   const { user } = useAuth();
 
@@ -42,8 +46,13 @@ export function NewRoom() {
         <p>Tire duvidas de sua audiência em tempo real.</p>
       </aside>
       <main>
+        <ThemeButton absolute />
         <MainContent>
-          <img src={logoImg} alt="Let-me-ask" />
+        {theme.title === 'dark' ? (
+            <img src={logoDrk} alt="Let-me-ask" />
+          ) : (
+            <img src={logoImg} alt="Let-me-ask" />
+          )}
           <h2>Criar um nova sala</h2>
 
           <form onSubmit={handleCreateRoom}>

@@ -6,7 +6,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #fefefe;
+  background: ${({theme}) => theme.colors.cardBg };
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0, 0.04);
 
@@ -14,12 +14,13 @@ export const Container = styled.div<ContainerProps>`
 
   ${({ isHightlighted }) => isHightlighted && (
     css`
-      background: #f4f0ff;
+      background: ${({theme}) => theme.colors.cardBgHighlighten };;
       border: 1px solid #835AFD;
+      box-shadow: 0px 0px 25px #835AFD;
 
       ${UserInfo}{
         > span {
-          color: #29292e;
+          color: ${({theme}) => theme.colors.title };
         }
       }
     `
@@ -27,8 +28,9 @@ export const Container = styled.div<ContainerProps>`
 
   ${({ isAnswered }) => isAnswered && (
     css`
-      background: #dbdddd;
+      background: ${({theme}) => theme.colors.cardBg };
       border:0;
+      opacity: 0.4;
     `
   )}
 
@@ -37,7 +39,7 @@ export const Container = styled.div<ContainerProps>`
   }
 
   p{
-    color: #29292e;
+    color: ${({theme}) => theme.colors.title };
     margin-bottom: 1rem;
   }
 

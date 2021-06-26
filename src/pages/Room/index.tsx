@@ -4,25 +4,30 @@ import { useParams } from 'react-router-dom'
 import { database } from '../../services/firebase';
 
 import { useAuth } from '../../contexts/auth';
+import { useTheme } from '../../contexts/theme';
 import { useRoom } from '../../hooks/useRoom';
 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 
 import logoImg from '../../assets/images/logo.svg'
+import logoDrk from '../../assets/images/logo-drk.svg'
 
 import { Container, Header, Title, Form, QuestionList, Like } from './styles';
 import { Question } from '../../components/Question';
+import { ThemeButton } from '../../components/ThemeButton';
+import { LogoutButton } from '../../components/LogoutButton ';
 
 type RoomParams = {
   id: string
 }
 
 export function Room() {
+  const { theme } = useTheme();
   const params = useParams<RoomParams>();
   const roomId = params.id;
 
-  const { user } = useAuth();
+  const { user, signInWithGoogle } = useAuth();
   const { questions, title } = useRoom(roomId);
 
   const [newQuestion, setNewQuestion] = useState('');
@@ -68,8 +73,16 @@ export function Room() {
     <Container>
       <Header>
         <div>
-          <img src={logoImg} alt="" />
-          <RoomCode code={roomId}/>
+          {theme.title === 'dark' ? (
+            <img src={logoDrk} alt="Let-me-ask" />
+          ) : (
+            <img src={logoImg} alt="Let-me-ask" />
+          )}
+          <div>
+            <RoomCode code={roomId}/>
+            <ThemeButton />
+            <LogoutButton />
+          </div>
         </div>
       </Header>
 
@@ -89,7 +102,7 @@ export function Room() {
               <span>{user.name}</span>
             </div>
             ) : (
-            <span>Para enviar uma pergunta, <button>faça seu login</button></span>
+            <span>Para enviar uma pergunta, <button type="button" onClick={signInWithGoogle}>faça seu login</button></span>
           )}
             <Button type="submit">Enviar pergunta</Button>
           </div>

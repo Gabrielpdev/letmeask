@@ -4,14 +4,18 @@ import { database } from '../../services/firebase';
 
 import { Button } from '../../components/Button';
 import { useAuth } from '../../contexts/auth';
+import { useTheme } from '../../contexts/theme';
 
 import illustrationImg from '../../assets/images/illustration.svg'
 import logoImg from '../../assets/images/logo.svg'
+import logoDrk from '../../assets/images/logo-drk.svg'
 import googleIcon from '../../assets/images/google-icon.svg'
 
 import { Container, MainContent, Separator, CreateRoom } from './styles';
+import { ThemeButton } from '../../components/ThemeButton';
 
 export function Home() {
+  const { theme } = useTheme();
   const history  = useHistory();
   const { user, signInWithGoogle } = useAuth();
 
@@ -55,8 +59,13 @@ export function Home() {
         <p>Tire duvidas de sua audiência em tempo real.</p>
       </aside>
       <main>
+        <ThemeButton absolute />
         <MainContent>
-          <img src={logoImg} alt="Let-me-ask" />
+          {theme.title === 'dark' ? (
+            <img src={logoDrk} alt="Let-me-ask" />
+          ) : (
+            <img src={logoImg} alt="Let-me-ask" />
+          )}
           <CreateRoom onClick={handleCreateRoom} type="button">
             <img src={googleIcon} alt="Logo do goole" />
             Crie sua sala com o Google

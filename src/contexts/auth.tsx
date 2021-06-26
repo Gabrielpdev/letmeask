@@ -11,6 +11,7 @@ interface UserProps {
 
 interface AtuhContextProps {
   signInWithGoogle: () => Promise<void>;
+  signOutWithGoogle: () => Promise<void>;
   user: UserProps | undefined;
 }
 
@@ -63,8 +64,14 @@ export const AuthProvider: React.FC = ({ children }) => {
     }
   }
 
+  async function signOutWithGoogle(){
+    await auth.signOut()
+
+    setUser(undefined)
+  }
+
   return (
-    <AuthContext.Provider value={{ signInWithGoogle, user }} >
+    <AuthContext.Provider value={{ signInWithGoogle, signOutWithGoogle, user }} >
       {children}
     </AuthContext.Provider>
   );

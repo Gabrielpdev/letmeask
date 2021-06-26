@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export default createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
  * {
     margin: 0;
     padding: 0;
@@ -11,10 +11,18 @@ export default createGlobalStyle`
     scroll-behavior: smooth;
     font-size: 62.5%;
     box-sizing: border-box;
-    background: #F8F8F8;
+    height: 100%;
   }
 
   body, input, button, textarea {
     font: 400 1.6rem 'Roboto', sans-serif;
+  }
+  
+  button{
+    cursor: pointer;
+  }
+
+  body, #root {
+    height: 100%;
   }
 `

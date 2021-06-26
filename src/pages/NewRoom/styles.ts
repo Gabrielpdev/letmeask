@@ -8,7 +8,7 @@ export const Container = styled.div`
   aside {
     flex: 7;
 
-    background: #835afd;
+    background: ${({ theme }) => theme.colors.purple};
     color: #ffffff;
     
     display: flex;
@@ -31,7 +31,7 @@ export const Container = styled.div`
       font-size: 2.4rem;
       line-height: 3.2rem;
       margin-top: 1.6rem;
-      color: #f8f8f8;
+      color: #ffffff;
     }
   }
 
@@ -43,6 +43,14 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: relative;
+  }
+
+  @media(max-width: 861px){
+    aside {
+      display: none;
+    }
   }
 `;
 
@@ -64,6 +72,7 @@ export const MainContent = styled.div`
     font-size :2.4rem;
     margin: 6.4rem 0 2.4rem;
     font-family: 'Poppins', sans-serif;
+    color: ${({ theme }) => theme.colors.light};
   }
 
   form {
@@ -71,12 +80,14 @@ export const MainContent = styled.div`
       height: 5rem;
       border-radius: 8px;
       padding: 0 1.6rem;
-      background: #fff;
+      background: ${({ theme }) => theme.colors.cardBg};
+      color: ${({ theme }) => theme.colors.light};
       border: 1px solid #a8a8b3;
     }
 
     button {
       margin-top: 1.6rem;
+      color: #FEFEFE;
     }
 
     button, input {

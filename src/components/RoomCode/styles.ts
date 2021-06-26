@@ -5,14 +5,14 @@ export const Container = styled.button`
   border-radius:8px;
   overflow: hidden;
 
-  background: #fff;
-  border: 1px solid #835afd;
+  background: ${({theme}) => theme.colors.background };
+  border: 1px solid ${({theme}) => theme.colors.purple };
   cursor: pointer;
 
   display: flex;
 
   div {
-    background: #835afd;
+    background: ${({theme}) => theme.colors.purple };
     padding: 0 1.2rem;
     display: flex;
     justify-content: center;
@@ -29,5 +29,10 @@ export const Container = styled.button`
     width: 23rem;
     font-size: 1.4rem;
     font-weight: 500;
+    color: ${({theme}) => theme.colors.title };
+  }
+
+  @media(max-width: 445px){
+    width: 100%;
   }
 `;
